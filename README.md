@@ -1,4 +1,5 @@
 Temperature and Humidity Data Logger using an Arduino UNO and multiple components.
+Project is build using the PlatformIO environement. 
 
 Components used:
 -DS1307 I2C RTC Clock Module
