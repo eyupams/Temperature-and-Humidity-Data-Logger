@@ -2,9 +2,9 @@ Temperature and Humidity Data Logger using an Arduino UNO and multiple component
 Project is build using the PlatformIO environement. 
 
 Components used:
-* DS1307 I2C RTC Clock Module
-* Standard LCD 16x2 Display
-* DHT11 Humidity & Temperature Sensor
++DS1307 I2C RTC Clock Module
++Standard LCD 16x2 Display
++DHT11 Humidity & Temperature Sensor
 
 
 ![layout](./resources/Logger_bb.svg)
