@@ -48,8 +48,9 @@ void showTime() {
 void loop() {
   
   Serial.print(dht.readTemperature()); //Store date on Excel
-  Serial.print(dht.readHumidity()); //Store date on Excel
-  showTime();
+  Serial.print("\t");
+  Serial.println(dht.readHumidity()); //Store date on Excel
+  //showTime();
   lcd.setCursor(0,1);
   float h = dht.readHumidity();
   //float t = dht.readTemperature(true); //show fahrenheit
@@ -63,5 +64,5 @@ void loop() {
     lcd.print(h);
   }
 
-  delay(10000); //update readings
+  delay(30000); //update readings
 }
