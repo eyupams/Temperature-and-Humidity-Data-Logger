@@ -23,17 +23,22 @@ void setup() {
     lcd.begin(16,2);
     lcd.print("Temp:  Humidity:");
     Wire.begin();
+    
     RTC.begin();
-    RTC.adjust(DateTime(__DATE__, __TIME__));
+
+    if (!RTC.isrunning()) {
+      // following line sets the RTC to the date & time this sketch was compiled
+      RTC.adjust(DateTime(__DATE__, __TIME__));
+  }
 }
 
 void showTime() {
   DateTime now = RTC.now();
-  Serial.print(now.day());
-  Serial.print('/');
-  Serial.print(now.month());
-  Serial.print('/');
   Serial.print(now.year());
+  Serial.print('-');
+  Serial.print(now.month());
+  Serial.print('-');
+  Serial.print(now.day());
   Serial.print(' ');
 
   Serial.print(now.hour());
@@ -41,16 +46,15 @@ void showTime() {
   Serial.print(now.minute());
   Serial.print(':');
   Serial.print(now.second());
-  Serial.println();
-  delay(1000);
 }
 
 void loop() {
-  
+  showTime();
+  Serial.print("\t");
   Serial.print(dht.readTemperature()); //Store date on Excel
   Serial.print("\t");
   Serial.println(dht.readHumidity()); //Store date on Excel
-  //showTime();
+  
   lcd.setCursor(0,1);
   float h = dht.readHumidity();
   //float t = dht.readTemperature(true); //show fahrenheit
