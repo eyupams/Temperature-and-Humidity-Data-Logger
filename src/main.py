@@ -29,7 +29,7 @@ def run():
             results = r.json()
             print(results)
             print(message)
-            time.sleep(30)
+            time.sleep(300)
     except(Exception) as error:
         print(error)
         
