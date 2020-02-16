@@ -12,7 +12,7 @@ const int DHT_SENSOR_PIN = 13;
 RTC_DS1307 RTC;
 
 //init dht component
-DHT dht(DHT_SENSOR_PIN, DHT11);
+DHT dht(DHT_SENSOR_PIN, DHT22);
 
 //init lcd display
 LiquidCrystal lcd(7,8,9,10,11,12);
@@ -50,15 +50,15 @@ void showTime() {
 
 void loop() {
   showTime();
+  float h = dht.readHumidity();
+  float f = dht.readTemperature();
   Serial.print("\t");
-  Serial.print(dht.readTemperature()); //Store date on Excel
+  Serial.print(f); //Store date on Excel
   Serial.print("\t");
-  Serial.println(dht.readHumidity()); //Store date on Excel
+  Serial.println(h); //Store date on Excel
   
   lcd.setCursor(0,1);
-  float h = dht.readHumidity();
-  //float t = dht.readTemperature(true); //show fahrenheit
-  float f = dht.readTemperature();
+
 
   if (isnan(h) || isnan(f)) {
     lcd.print("ERROR");
