@@ -19,6 +19,6 @@ Wiring:
 RST to GND if you want to reset the board.
 GPIO_0 to GND to start it into bootloader mode.
 GPIO_2 can be interchanged with the GPIO_0's place in the DHT22 data line.
-![layout](./resources/Logger_bb.svg)
+![layout](./resources/Logger_bb.png)
 
 First flash the ESP8266 chip by connecting everything and starting it in boot mode. Use esptool.py to flash it with Micropython firmware, then load up boot.py and main.py onto the chip using WebREPL.
